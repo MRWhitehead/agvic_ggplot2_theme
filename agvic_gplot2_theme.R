@@ -31,7 +31,7 @@ theme_update(
   plot.title.position= 'plot', plot.caption.position= 'plot'
 )
 
-### example plot
+## example plot
 box <- ggplot(data=iris, aes(x=Species, y=Sepal.Length))
 box + geom_boxplot(aes(fill=Species)) + 
   ylab("Sepal Length") + ggtitle("Iris Boxplot") +
@@ -39,3 +39,18 @@ box + geom_boxplot(aes(fill=Species)) +
   labs(    caption = "Agriculture Victoria ggplot2 theme")
 
 
+
+## AgVic HEX colour codes.
+# Ag Vic Greens: 67823A, 698749, 759157
+# Supporting greens: 00573F, 4A773C, 719949, 7A9A01
+# Supporting greys: 53565A, BBBCBC
+
+
+agvic_colours <- c("#67823A", "#698749", "#759157", "#00573F", "#4A773C", "#719949", "#7A9A01", "#53565A", "#BBBCBC")
+
+agvic <- data.frame(agvic_colours)
+
+pallette <- qplot(x=1:nrow(agvic), y = 1, fill=factor(1:nrow(agvic)), geom="tile") +
+  scale_fill_manual(values = agvic_colours) +
+  theme_void()+
+  theme(legend.position="none")
